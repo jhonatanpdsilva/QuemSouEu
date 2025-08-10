@@ -9,11 +9,49 @@
     function setLanguage(lang) {
       document.documentElement.lang = lang;
       localStorage.setItem('lang', lang);
-      location.reload();
+      applyTranslations(lang);
     }
+
+    function applyTranslations(lang) {
+      const translations = {
+        'en': {
+          'title': "Jhonatan's Squad Leader Portfolio",
+          'subtitle': "Leading Agile Teams to Deliver Innovative Digital Solutions",
+          'aboutMe': "About Me",
+          'aboutText': "As a Squad Leader with extensive experience in agile methodologies (Scrum, Kanban), I specialize in guiding cross-functional teams to deliver high-impact digital products. My work focuses on fostering collaboration, optimizing workflows, and driving results in areas like Education Finance and Onboarding.",
+          'projects': "Key Projects",
+          'project1': "Led a squad to develop and sustain a platform enhancing financial literacy, integrating user journeys with seamless tech solutions.",
+          'project2': "Streamlined user onboarding for a digital app, improving UX and reducing drop-off rates through agile practices.",
+          'skills': "Skills & Tools",
+          'connect': "Connect with me:"
+        },
+        'pt-br': {
+          'title': "Portfólio de Líder de Squad do Jhonatan",
+          'subtitle': "Liderando Equipes Ágeis para Entregar Soluções Digitais Inovadoras",
+          'aboutMe': "Sobre Mim",
+          'aboutText': "Como Líder de Squad com vasta experiência em metodologias ágeis (Scrum, Kanban), eu me especializo em guiar equipes multifuncionais para entregar produtos digitais de alto impacto. Meu trabalho foca em fomentar colaboração, otimizar fluxos de trabalho e impulsionar resultados em áreas como Finanças Educacionais e Onboarding.",
+          'projects': "Projetos Principais",
+          'project1': "Liderou uma squad para desenvolver e manter uma plataforma que aprimora a alfabetização financeira, integrando jornadas de usuário com soluções tecnológicas seamless.",
+          'project2': "Otimizou o onboarding de usuários para um aplicativo digital, melhorando a UX e reduzindo taxas de abandono por meio de práticas ágeis.",
+          'skills': "Habilidades e Ferramentas",
+          'connect': "Conecte-se comigo:"
+        }
+      };
+      document.getElementById('title').textContent = translations[lang]['title'];
+      document.getElementById('subtitle').textContent = translations[lang]['subtitle'];
+      document.getElementById('aboutMe').textContent = translations[lang]['aboutMe'];
+      document.getElementById('aboutText').textContent = translations[lang]['aboutText'];
+      document.getElementById('projects').textContent = translations[lang]['projects'];
+      document.getElementById('project1').textContent = translations[lang]['project1'];
+      document.getElementById('project2').textContent = translations[lang]['project2'];
+      document.getElementById('skills').textContent = translations[lang]['skills'];
+      document.getElementById('connect').textContent = translations[lang]['connect'];
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const lang = localStorage.getItem('lang') || 'en';
-      setLanguage(lang);
+      document.documentElement.lang = lang;
+      applyTranslations(lang);
     });
   </script>
 </head>
@@ -71,45 +109,5 @@
       <a href="https://github.com/username" class="text-blue-300 mx-2">GitHub</a>
     </div>
   </footer>
-
-  <script>
-    const translations = {
-      'en': {
-        'title': "Jhonatan's Squad Leader Portfolio",
-        'subtitle': "Leading Agile Teams to Deliver Innovative Digital Solutions",
-        'aboutMe': "About Me",
-        'aboutText': "As a Squad Leader with extensive experience in agile methodologies (Scrum, Kanban), I specialize in guiding cross-functional teams to deliver high-impact digital products. My work focuses on fostering collaboration, optimizing workflows, and driving results in areas like Education Finance and Onboarding.",
-        'projects': "Key Projects",
-        'project1': "Led a squad to develop and sustain a platform enhancing financial literacy, integrating user journeys with seamless tech solutions.",
-        'project2': "Streamlined user onboarding for a digital app, improving UX and reducing drop-off rates through agile practices.",
-        'skills': "Skills & Tools",
-        'connect': "Connect with me:"
-      },
-      'pt-br': {
-        'title': "Portfólio de Líder de Squad do Jhonatan",
-        'subtitle': "Liderando Equipes Ágeis para Entregar Soluções Digitais Inovadoras",
-        'aboutMe': "Sobre Mim",
-        'aboutText': "Como Líder de Squad com vasta experiência em metodologias ágeis (Scrum, Kanban), eu me especializo em guiar equipes multifuncionais para entregar produtos digitais de alto impacto. Meu trabalho foca em fomentar colaboração, otimizar fluxos de trabalho e impulsionar resultados em áreas como Finanças Educacionais e Onboarding.",
-        'projects': "Projetos Principais",
-        'project1': "Liderou uma squad para desenvolver e manter uma plataforma que aprimora a alfabetização financeira, integrando jornadas de usuário com soluções tecnológicas seamless.",
-        'project2': "Otimizou o onboarding de usuários para um aplicativo digital, melhorando a UX e reduzindo taxas de abandono por meio de práticas ágeis.",
-        'skills': "Habilidades e Ferramentas",
-        'connect': "Conecte-se comigo:"
-      }
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const lang = localStorage.getItem('lang') || 'en';
-      document.getElementById('title').textContent = translations[lang]['title'];
-      document.getElementById('subtitle').textContent = translations[lang]['subtitle'];
-      document.getElementById('aboutMe').textContent = translations[lang]['aboutMe'];
-      document.getElementById('aboutText').textContent = translations[lang]['aboutText'];
-      document.getElementById('projects').textContent = translations[lang]['projects'];
-      document.getElementById('project1').textContent = translations[lang]['project1'];
-      document.getElementById('project2').textContent = translations[lang]['project2'];
-      document.getElementById('skills').textContent = translations[lang]['skills'];
-      document.getElementById('connect').textContent = translations[lang]['connect'];
-    });
-  </script>
 </body>
 </html>
